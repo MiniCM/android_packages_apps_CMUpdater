@@ -428,7 +428,7 @@ public class UpdateCheckService extends Service {
         LinkedList<UpdateInfo> ret = new LinkedList<UpdateInfo>();
         for (int i = 0, max = updateInfos.size(); i < max; i++) {
             UpdateInfo ui = updateInfos.poll();
-            if (mShowAllRomUpdates || StringUtils.compareVersions(ui.getVersion(), mSystemRom,ui.getDate(),mCurrentBuildDate)) {
+            if (mShowAllRomUpdates || StringUtils.compareVersions(ui.getVersion(), mSystemRom.replace("MiniCM",""),ui.getDate(),mCurrentBuildDate)) {
                 if (branchMatches(ui, mShowNightlyRomUpdates)) {
                     ret.add(ui);
                 }
